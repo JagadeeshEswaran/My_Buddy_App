@@ -1,0 +1,95 @@
+@import "../../style.scss";
+
+.navbar {
+	@include themify($themes) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 10px 20px;
+		height: 50px;
+		border-bottom: 1px solid themed("border");
+		box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+			rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+		position: sticky;
+		top: 0;
+		background-color: themed("bg");
+		color: themed("textColor");
+
+		/* Burry Background Color Effect */
+		// border-radius: 10px;
+		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		backdrop-filter: blur(8.1px);
+		-webkit-backdrop-filter: blur(5.1px);
+		z-index: 999;
+
+		.left {
+			display: flex;
+			align-items: center;
+			gap: 25px;
+
+			span {
+				font-weight: bold;
+				font-size: 20px;
+				color: themed("logo");
+
+				@include mobile {
+					justify-content: flex-end;
+				}
+			}
+
+			.search {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				border: 0.5px solid themed("border");
+				border-radius: 5px;
+				padding: 5;
+
+				input {
+					border: none;
+					width: 500px;
+					background-color: transparent;
+					color: themed("textColor");
+
+					@include mobile {
+						display: none;
+					}
+					@include tablet {
+						width: 200px;
+					}
+				}
+			}
+		}
+
+		.right {
+			display: flex;
+			align-items: center;
+			gap: 25px;
+
+			@include mobile {
+				display: none;
+			}
+
+			.user {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				font-weight: 500;
+
+				@include tablet {
+					display: none;
+				}
+
+				img {
+					width: 30;
+					height: 30px;
+					border-radius: 50%;
+					object-fit: cover;
+				}
+			}
+
+			span {
+			}
+		}
+	}
+}
